@@ -15,7 +15,8 @@
 
 
 FROM eclipse-temurin:21-jre-alpine
-MAINTAINER Stian Soiland-Reyes <stain@apache.org>
+
+LABEL org.opencontainers.image.authors="Stian Soiland-Reyes <stain@apache.org>"
 
 ENV LANG C.UTF-8
 RUN set -eux; \

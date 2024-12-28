@@ -15,14 +15,14 @@
 
 FROM eclipse-temurin:21-jre-alpine
 
-MAINTAINER Stian Soiland-Reyes <stain@apache.org>
+LABEL org.opencontainers.image.authors="Stian Soiland-Reyes <stain@apache.org>"
 
 ENV LANG C.UTF-8
 
 RUN set -eux; \
-    apk -U upgrade; \
-    apk add bash curl ca-certificates findutils coreutils procps; \
-    rm -rf /var/cache/apk/*
+	apk -U upgrade; \
+	apk add bash curl ca-certificates findutils coreutils procps; \
+	rm -rf /var/cache/apk/*
 
 
 
@@ -48,7 +48,7 @@ WORKDIR /tmp
 RUN echo "$JENA_SHA512  jena.tar.gz" > jena.tar.gz.sha512
 # Download/check/unpack/move in one go (to reduce image size)
 RUN     (curl --location --silent --show-error --fail --retry-connrefused --retry 3 --output jena.tar.gz ${ASF_MIRROR}jena/binaries/apache-jena-$JENA_VERSION.tar.gz || \
-         curl --fail --silent --show-error --retry-connrefused --retry 3 --output jena.tar.gz $ASF_ARCHIVE/jena/binaries/apache-jena-$JENA_VERSION.tar.gz) && \
+	curl --fail --silent --show-error --retry-connrefused --retry 3 --output jena.tar.gz $ASF_ARCHIVE/jena/binaries/apache-jena-$JENA_VERSION.tar.gz) && \
 	sha512sum -c jena.tar.gz.sha512 && \
 	tar zxf jena.tar.gz && \
 	mv apache-jena* /jena && \
