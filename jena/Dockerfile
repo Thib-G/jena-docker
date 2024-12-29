@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:23-jre-alpine
 
 LABEL org.opencontainers.image.authors="Stian Soiland-Reyes <stain@apache.org>"
 
@@ -28,8 +28,8 @@ RUN set -eux; \
 
 # Update below according to https://jena.apache.org/download/
 # and checksum for apache-jena-4.x.x.tar.gz.sha512
-ENV JENA_SHA512 f426275591aaa5274a89cab2f2ee16623086c5f0c7669bda5b2cead90089497e57098885745fd88e3c7db75cbaac48fe58f84ec9cd2dbb937592ff2f0ef0f92e
-ENV JENA_VERSION 5.1.0
+ENV JENA_SHA512 9a66044573ca269c0a9a1191fe7a8e1925f2d77e2e0bdadddd68616a1bafed1d9819c0b2988dd03614ec778a3882ccb091d825976fc0837406916f9f001b701c
+ENV JENA_VERSION 5.2.0
 ENV ASF_MIRROR https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=
 ENV ASF_ARCHIVE https://archive.apache.org/dist/
 
